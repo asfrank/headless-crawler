@@ -61,3 +61,6 @@ typings/
 .next
 
 screenshot/*.png
+mn/*.png
+mn/*.jpg
+mn/*.gif

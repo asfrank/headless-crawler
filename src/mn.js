@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const { mn } = require('./config/default';)
 
 (async () => {
     const browser = await puppeteer.launch();
@@ -14,9 +15,15 @@ const puppeteer = require('puppeteer');
     await page.keyboard.sendCharacter('狗');
     await page.click('.s_btn');
     console.log('go to search list');
-    page.on('load', () => {
+    page.on('load', async () => {
         console.log('page load done, start fetch...');
-        
+        const srcs = await page.evaluate(() => {
+            const images = document.querySelectorAll('img.main_img');
+            return Array.prototype.map.call(images, img => img.src);
+        });
+        srcs.forEach(src => {
+
+        })
     });
     
 })();
